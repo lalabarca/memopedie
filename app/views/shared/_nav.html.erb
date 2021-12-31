@@ -1,0 +1,111 @@
+<%# <header>
+   <nav>
+     <ul>
+       <li><a href="/home">Home</a></li>
+       <li><a href="/products">Products</a></li>
+       <li><a href="/about">About</a></li>
+       <li id="login"><a href="/login" >Login</a></li>
+       <li id="signup"><a href="/signup">Signup</a></li>
+     </ul>
+   </nav>
+   <div id="brand"><a href="/">MyCompany</a></div>
+
+</header> %>
+
+
+<header class="navbar-lewagon" >
+  <div class="container" data-controller="toggle-search">
+    <div class="row pb-2">
+      <div class="col-7 d-flex align-items-center">
+        <button class="mr-2" type="button" aria-expanded="false" aria-label="Toggle navigation" data-action="click->toggle-search#slide" data-toggle-search-target="toggler">
+          <div id="hamburger-icon">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        </button>
+        <%= link_to "Memopédie", root_path, class: "navbar-brand" %>
+      </div>
+      <nav class="col-5">
+        <ul class="right-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+            <% if current_user.avatar.empty? %>
+              <%= link_to new_user_session_path, class: "avatar-default", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, remote: true do %>
+                <i class="fas fa-user-circle"></i>
+              <% end %>
+            <% else %>
+              <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Mon compte", "#", class: "dropdown-item" %>
+              <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to new_user_session_path, class: "avatar-default" do %>
+                <i class="fas fa-user-circle"></i>
+              <% end %>
+            </li>
+          <% end %>
+            <li>
+              <button class="search-nav" type="button" aria-expanded="false" aria-label="Toggle navigation" data-action="click->toggle-search#show">
+                <i class="fas fa-search"></i>
+              </button>
+            </li>
+          </ul>
+      </nav>
+    </div>
+    <div class="row search-bar" data-toggle-search-target="bar">
+      <div class="col-12">
+        <%= form_tag memes_path, class: "form-search", method: :get do %>
+          <%= button_tag type:"submit", class: "" do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "input-form form-control",
+              placeholder: "Je recherche..."
+            %>
+          <%= button_tag type:"button", class: "", data: { action: 'click->toggle-search#hide' } do %>
+            <i class="fas fa-times"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <nav class="menu-nav" data-toggle-search-target="menu">
+      <ul class="">
+          <li>
+            <%= link_to "Tous les memes" %>
+          </li>
+          <li>
+            <%= link_to "Images" %>
+          </li>
+          <li>
+            <%= link_to "GIFs" %>
+          </li>
+          <li>
+            <%= link_to "Vidéos" %>
+          </li>
+          <li>
+            <%= link_to "🇫🇷 Memes français" %>
+          </li>
+          <li>
+            <%= link_to "🌎 Memes internationaux" %>
+          </li>
+          <li>
+            <%= link_to "🌴 Memes en créole" %>
+          </li>
+          <li>
+            <%= link_to "Ajouter un meme →" %>
+          </li>
+          <li>
+            <%= link_to "À propos →" %>
+          </li>
+      </ul>
+    </nav>
+    <div class="blur-menu" data-toggle-search-target="blur"></div>
+  </div>
+</header>

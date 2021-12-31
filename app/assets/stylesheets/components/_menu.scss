@@ -1,0 +1,55 @@
+.menu-nav {
+  position: absolute;
+  color: white;
+  width: auto;
+  top: 75px; bottom: 0; right: 2.5rem;
+  z-index: 9999;
+  background-color: $d-blue;
+  height: calc(100vh + 70px);
+  transition: 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  left: calc(-100vw - 2.5rem);
+  opacity: 0;
+
+  ul {
+    margin: 2rem 0 0 0;
+    width: 100%;
+  }
+
+  li {
+    border-bottom: thin solid rgba($color: #fff, $alpha: 0.1);
+    a {
+      color: white;
+      padding: 1.3rem 1.6rem;
+      display: block;
+    }
+
+    &:first-child, &:nth-child(8), &:nth-child(9) {
+      font-weight: bold;
+    }
+
+    &:first-child, &:nth-child(4), &:nth-child(7), &:last-child  {
+      border: none;
+    }
+  }
+
+  &.active {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+
+.blur-menu {
+  position: absolute;
+  opacity: 0;
+  top: 75px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba($d-blue, 0.7);
+  z-index: 4;
+  height: calc(100vh + 70px);
+  &.active {
+    opacity: 1;
+  }
+}

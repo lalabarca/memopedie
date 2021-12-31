@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.d-block {
+  display: block;
+}

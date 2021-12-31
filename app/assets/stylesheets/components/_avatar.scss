@@ -1,7 +1,15 @@
 .avatar {
-  width: 40px;
+  width: 30px;
   border-radius: 50%;
+  height: 30px;
+  object-fit: cover;
+  cursor: pointer;
 }
+
+.avatar-default {
+  font-size: 1.6rem;
+}
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;
