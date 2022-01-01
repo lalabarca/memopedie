@@ -9,11 +9,8 @@ button {
   border: none;
 }
 
-.d-block {
-  display: block;
-}
-
-main {
+.main {
+  margin-top: calc(75px + 2rem);
   z-index: 1;
   position: relative;
 }
