@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_174432) do
+ActiveRecord::Schema.define(version: 2022_01_01_003624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,13 @@ ActiveRecord::Schema.define(version: 2021_12_31_174432) do
   create_table "memes", force: :cascade do |t|
     t.text "description"
     t.string "extern_link"
-    t.string "type"
+    t.string "format"
     t.string "origin"
     t.integer "year"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "template"
     t.index ["user_id"], name: "index_memes_on_user_id"
   end
 

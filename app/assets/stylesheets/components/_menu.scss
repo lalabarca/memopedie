@@ -23,11 +23,11 @@
       display: block;
     }
 
-    &:first-child, &:nth-child(8), &:nth-child(9) {
+    &:first-child, &:nth-child(2), &:nth-last-child(2), &:last-child {
       font-weight: bold;
     }
 
-    &:first-child, &:nth-child(4), &:nth-child(7), &:last-child  {
+    &:nth-child(2), &:nth-child(4), &:nth-child(7), &:last-child  {
       border: none;
     }
   }
