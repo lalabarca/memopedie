@@ -3,7 +3,7 @@
   color: white;
   width: auto;
   top: 75px; bottom: 0; right: 2.5rem;
-  z-index: 9999;
+  z-index: -100;
   background-color: $d-blue;
   height: calc(100vh + 70px);
   transition: 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -34,6 +34,7 @@
 
   &.active {
     left: 0;
+    z-index: 9999;
     opacity: 1;
   }
 }
@@ -41,7 +42,7 @@
 
 .blur-menu {
   position: absolute;
-  opacity: 0;
+  display: none;
   top: 75px;
   bottom: 0;
   right: 0;
@@ -50,6 +51,6 @@
   z-index: 4;
   height: calc(100vh + 70px);
   &.active {
-    opacity: 1;
+    display: block;
   }
 }

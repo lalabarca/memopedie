@@ -12,3 +12,8 @@ button {
 .d-block {
   display: block;
 }
+
+main {
+  z-index: 1;
+  position: relative;
+}

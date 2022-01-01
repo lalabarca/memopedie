@@ -1,2 +1,48 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="banner">
+          <h1>L’encyclopédie 🇫🇷 du meme </h1>
+          <p>Recherchez des mots en français et regardez le résultat !</p>
+          <div class="col-9">
+            <%= form_tag memes_path, class: "form-search", method: :get do %>
+              <%= button_tag type:"submit", class: "" do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "input-form form-control",
+                  placeholder: "Je recherche..."
+                %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <h1>Les derniers memes ajoutés</h1>
+      <div class="row">
+      <% @memes.each do |meme| %>
+        <div class="col-6 col-lg-3">
+          <%= link_to meme_path(meme), class:"link-meme" do %>
+            <figure>
+              <%= image_tag meme.extern_link, alt: "photo du meme #{meme.id}" %>
+            </figure>
+            <ul>
+              <li>#<%= meme.format %></li>
+              <li>#<%= meme.origin %></li>
+              <% if meme.template %>
+              <li>#template</li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </section>
+</main>
