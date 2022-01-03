@@ -7,14 +7,14 @@
           <p>Recherchez des mots en français et regardez le résultat !</p>
           <div class="col-9">
             <%= form_tag memes_path, class: "form-search", method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "input-form form-control",
+                placeholder: "Je recherche..."
+              %>
               <%= button_tag type:"submit", class: "" do %>
                 <i class="fas fa-search"></i>
               <% end %>
-                <%= text_field_tag :query,
-                  params[:query],
-                  class: "input-form form-control",
-                  placeholder: "Je recherche..."
-                %>
             <% end %>
           </div>
         </div>

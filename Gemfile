@@ -63,3 +63,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise for User model
 gem 'devise'
+
+# Search engine PG Search
+gem 'pg_search', '~> 2.3.0'
+
+# Images storing
+gem 'cloudinary', '~> 1.16.0'
