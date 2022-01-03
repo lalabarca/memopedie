@@ -11,6 +11,10 @@
   z-index: 10;
   top: 0;
 
+  &> div {
+    width: 100%;
+  }
+
   a {
     color: black;
   }

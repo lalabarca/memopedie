@@ -4,6 +4,8 @@ class Meme < ApplicationRecord
   validates :format, presence: true, inclusion: { in: ["image", "gif", "video"] }
   validates :origin, presence: true, inclusion: { in: ["france", "international", "creole"] }
 
+  has_one_attached :photo
+
   include PgSearch::Model
   pg_search_scope :search_by_description,
     against: [ :description ],

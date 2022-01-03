@@ -1,2 +1,29 @@
-<h1>Memes#index</h1>
-<p>Find me in app/views/memes/index.html.erb</p>
+<section class="container">
+  <% if params[:query].present?  %>
+  <h1>Vous avez cherché: <%= params[:query] %></h1>
+  <% else %>
+  <h1>Tous les memes</h1>
+  <% end %>
+  <div class="row">
+  <% @memes.each do |meme| %>
+    <div class="col-6 col-lg-3">
+      <%= link_to meme_path(meme), class:"link-meme" do %>
+        <figure>
+        <% if meme.photo.attached? %>
+          <%= cl_image_tag meme.photo.key, alt: "photo du meme #{meme.id}" %>
+        <% else %>
+          <%= image_tag meme.extern_link, alt: "photo du meme #{meme.id}" %>
+        <% end %>
+        </figure>
+        <ul>
+          <li>#<%= meme.format %></li>
+          <li>#<%= meme.origin %></li>
+          <% if meme.template %>
+          <li>#template</li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</section>
