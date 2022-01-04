@@ -1,0 +1,20 @@
+<% @memes.each do |meme| %>
+  <div class="col-6 col-lg-3">
+    <%= link_to meme_path(meme), class:"link-meme" do %>
+      <figure>
+      <% if meme.photo.attached? %>
+        <%= cl_image_tag meme.photo.key, alt: "photo du meme #{meme.id}" %>
+      <% else %>
+        <%= image_tag meme.extern_link, alt: "photo du meme #{meme.id}" %>
+      <% end %>
+      </figure>
+      <ul>
+        <li>#<%= meme.format %></li>
+        <li>#<%= meme.origin %></li>
+        <% if meme.template %>
+        <li>#template</li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+<% end %>

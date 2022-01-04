@@ -10,4 +10,20 @@ class MemesController < ApplicationController
   def show
     @meme = Meme.find(params[:id])
   end
+
+  def templates
+    @templates = Meme.where(template: true)
+  end
+
+  def images
+    @images = Meme.where(format: "image")
+  end
+
+  def gifs
+    @gifs = Meme.where(format: "gif")
+  end
+
+  def videos
+    @videos = Meme.where(format: "video")
+  end
 end

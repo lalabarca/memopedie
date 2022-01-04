@@ -25,7 +25,16 @@
   <div class="container">
     <h1>Les derniers memes ajoutés</h1>
     <div class="row">
-    <% @memes.each do |meme| %>
+      <%= render 'shared/meme_card' %>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h1>Les memes français 🇫🇷</h1>
+    <div class="row">
+    <% @memes_fr.each do |meme| %>
       <div class="col-6 col-lg-3">
         <%= link_to meme_path(meme), class:"link-meme" do %>
           <figure>
@@ -46,5 +55,6 @@
       </div>
     <% end %>
     </div>
+    <%= link_to "Voir plus", memes_path(query: "france"), class:"btn-normal" %>
   </div>
 </section>

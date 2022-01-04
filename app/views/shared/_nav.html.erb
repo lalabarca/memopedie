@@ -70,28 +70,28 @@
     <nav class="menu-nav" data-toggle-search-target="menu">
       <ul class="">
           <li>
-            <%= link_to "Tous les memes" %>
+            <%= link_to "Tous les memes", memes_path %>
           </li>
           <li>
-            <%= link_to "Templates" %>
+            <%= link_to "Templates", templates_memes_path %>
           </li>
           <li>
-            <%= link_to "Images" %>
+            <%= link_to "Images", images_memes_path %>
           </li>
           <li>
-            <%= link_to "GIFs" %>
+            <%= link_to "GIFs", gifs_memes_path %>
           </li>
           <li>
-            <%= link_to "Vidéos" %>
+            <%= link_to "Vidéos", videos_memes_path %>
           </li>
           <li>
-            <%= link_to "🇫🇷 Memes français" %>
+            <%= link_to "🇫🇷 Memes français", memes_path(query: "france") %>
           </li>
           <li>
-            <%= link_to "🌎 Memes internationaux" %>
+            <%= link_to "🌎 Memes internationaux", memes_path(query: "international") %>
           </li>
           <li>
-            <%= link_to "🌴 Memes en créole" %>
+            <%= link_to "🌴 Memes en créole", memes_path(query: "creole") %>
           </li>
           <li>
             <%= link_to "Ajouter un meme →" %>
